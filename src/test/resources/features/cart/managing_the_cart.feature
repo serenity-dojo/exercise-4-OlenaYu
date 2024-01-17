@@ -1,8 +1,8 @@
-@pending
 Feature: Managing the cart
 
   Background:
     Given Colin has logged onto the application
+    And he has no items in his cart
 
   Rule: Customer can add or remove items from the catalog
 
@@ -49,3 +49,5 @@ Feature: Managing the cart
       And he is browsing the product catalog
       When he opens the shopping cart
       Then he should see the items he selected in the cart
+        | Sauce Labs Backpack   |
+        | Sauce Labs Bike Light |

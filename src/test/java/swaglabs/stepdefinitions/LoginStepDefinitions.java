@@ -4,7 +4,8 @@ import io.cucumber.java.DataTableType;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import net.thucydides.core.annotations.Steps;
+
+import net.serenitybdd.annotations.Steps;
 import swaglabs.actions.catalog.CatalogItems;
 import swaglabs.actions.login.LoginActions;
 import swaglabs.model.UserCredentials;
@@ -30,6 +31,7 @@ public class LoginStepDefinitions {
     @When("Colin/he has logged on to the application")
     public void onTheLoginPage() {
         login.openTheLoginPage();
+        //login.withValidCredentials();
     }
 
     @When("Colin/he logs in with valid credentials")
@@ -49,18 +51,20 @@ public class LoginStepDefinitions {
     /**
      * Logon to the application if the user is not already logged on
      */
-    @Given("Colin/he has logged onto the application")
+    @Given("Colin has logged onto the application")
     public void aRegisteredUser() {
-        // TODO: Implement me
+        login.openTheLoginPage();
+        login.withValidCredentials();
     }
 
     @When("Colin/he attempts to login with the following credentials:")
     public void attemptsToLoginWithTheFollowingCredentials(UserCredentials userCredentials) {
-        // TODO: Implement me
+        login.withCredentials(userCredentials.username(), userCredentials.password());
+
     }
 
     @Then("Colin/he should be presented with the error message {}")
-    public void heShouldBePresentedWithTheErrorMessageMessage(String errorMessage) {
-        // TODO: Implement me
+    public void heShouldBePresentedWithTheErrorMessage(String errorMessage) {
+        assertThat(login.errorMessage()).contains(errorMessage);
     }
 }
