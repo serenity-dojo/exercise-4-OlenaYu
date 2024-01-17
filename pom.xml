@@ -11,12 +11,13 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <serenity.version>3.3.0</serenity.version>
+        <serenity.version>4.0.15</serenity.version>
+        <junit-vintage-engine.version>5.1.0</junit-vintage-engine.version>
+        <junit-platform-suite.version>1.10.0</junit-platform-suite.version>
+        <cucumber-junit-platform-engine.version>7.14.0</cucumber-junit-platform-engine.version>
         <encoding>UTF-8</encoding>
         <tags></tags>
         <webdriver.base.url></webdriver.base.url>
-        <browserstack.user></browserstack.user>
-        <browserstack.key></browserstack.key>
     </properties>
     <dependencies>
         <dependency>
@@ -82,6 +83,12 @@
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
             <version>3.22.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-core</artifactId>
+            <version>4.0.12</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

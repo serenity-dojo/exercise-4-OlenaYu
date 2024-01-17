@@ -10,7 +10,7 @@ Feature: Login
       When Colin logs in with valid credentials
       Then he should be presented the product catalog
 
-    @pending
+
     Scenario Outline: Login with invalid credentials
       Given Colin is on the login page
       When Colin attempts to login with the following credentials:

@@ -1,8 +1,9 @@
-@pending
+
 Feature: Completing a purchase
 
   Background:
     Given Colin has logged onto the application
+    And he has no items in his cart
 
   Rule: Customers must provide their name and address during checkout
 
@@ -19,9 +20,9 @@ Feature: Completing a purchase
         | Colin      |           | ABC-123       | Error: Last Name is required   |
         | Colin      | Collector |               | Error: Postal Code is required |
 
-
   Rule: Customers should see a summary of their order before they complete their purchase
     Example: Colin purchases two items and sees them both appear in the purchase summary
+#      Given Colin is browsing the product catalog
       Given Colin has the following items in his cart:
         | Sauce Labs Backpack     |
         | Sauce Labs Bolt T-Shirt |
@@ -36,7 +37,7 @@ Feature: Completing a purchase
 
   Rule: Customers should be informed that their order has been placed
     Example: Colin confirms his order and is told that the items have been dispatched
-      Given Colin has the following item in his cart:
+      Given Colin has the following items in his cart:
         | Sauce Labs Backpack     |
         | Sauce Labs Bolt T-Shirt |
       When he checks out his cart providing his personal details

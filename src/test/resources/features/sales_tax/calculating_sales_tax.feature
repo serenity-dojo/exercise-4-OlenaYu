@@ -1,8 +1,9 @@
-@pending
+
 Feature: Calculating sales tax
 
   Background:
     Given Colin has logged onto the application
+    And he has no items in his cart
 
   Rule: Sales tax is calculated as 8% of the purchase price
     Scenario Outline: Colin sees the correctly calculated sales tax for his order
